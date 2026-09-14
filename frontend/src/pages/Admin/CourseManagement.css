@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Course Management Styles
+   ========================================================================== */
+
+.table-course-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-course-thumb {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.table-course-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-course-info strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-tutor-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.table-tutor-cell span {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.table-stats-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.table-stats-cell span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text-muted {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary) !important;
+}
+
+.status-pill.active {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.status-pill.inactive {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}

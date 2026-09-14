@@ -1,0 +1,2 @@
+# This file exists so git tracks the uploads/ directory structure.
+# All actual uploaded files are ignored via .gitignore.

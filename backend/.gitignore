@@ -1,0 +1,18 @@
+# Backend .gitignore
+# (root .gitignore already covers most things — this adds backend-specific rules)
+
+# Environment secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# User-uploaded files
+uploads/*
+!uploads/.gitkeep
+
+# Database / SQL dumps
+*.sql.bak
+*.dump
+
+# Local test coverage
+coverage/

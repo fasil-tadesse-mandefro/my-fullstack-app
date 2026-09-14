@@ -1,0 +1,331 @@
+/* ==========================================================================
+   Tutor Verification Styles
+   ========================================================================== */
+
+.verification-container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+  .verification-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.status-badge-pending {
+  background-color: #fffbeb;
+  color: #b45309;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #fde68a;
+}
+
+.status-badge-pending span {
+  background: #f59e0b;
+  color: white;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Pending List Column
+   -------------------------------------------------------------------------- */
+.verification-list-col {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+}
+
+.pending-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pending-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pending-card:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-color);
+}
+
+.pending-card.active {
+  background-color: #eff6ff;
+  border-color: var(--primary);
+}
+
+.pending-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.pending-info {
+  flex: 1;
+}
+
+.pending-info h4 {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.1rem;
+}
+
+.pending-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.pending-date {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.pending-arrow {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.pending-card:hover .pending-arrow,
+.pending-card.active .pending-arrow {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Details View Column
+   -------------------------------------------------------------------------- */
+.verification-detail-col {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.tutor-detail-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.detail-header {
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.detail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+.detail-title h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.detail-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.detail-body {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detail-group h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.detail-group p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detail-box {
+  background: var(--bg-subtle);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.box-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.box-value {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.document-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: white;
+}
+
+.doc-icon {
+  font-size: 1.5rem;
+}
+
+.doc-name {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.doc-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.doc-size {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.doc-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.doc-link:hover {
+  text-decoration: underline;
+}
+
+.detail-actions {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  background-color: var(--bg-subtle);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.btn-approve, .btn-reject {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-approve {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-approve:hover {
+  background-color: #059669;
+}
+
+.btn-reject {
+  background-color: white;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+
+.btn-reject:hover {
+  background-color: #fef2f2;
+}
+
+.detail-empty-state {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.empty-icon-large {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.detail-empty-state h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}

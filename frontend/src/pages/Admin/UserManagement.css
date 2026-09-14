@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Admin Tables & User Management Styles
+   ========================================================================== */
+
+.admin-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: white;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.admin-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background-color: var(--bg-subtle);
+}
+
+.table-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.table-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-user-info strong {
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.table-user-info span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.table-contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.table-contact-cell span {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.table-contact-cell .text-muted {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.empty-table-state {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--text-secondary);
+  font-style: italic;
+}

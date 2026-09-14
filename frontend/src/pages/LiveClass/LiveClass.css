@@ -1,0 +1,46 @@
+.live-class-page { background: var(--bg-subtle); min-height: calc(100vh - var(--navbar-height)); padding: 2rem 0 5rem; }
+.live-class-back { color: var(--text-secondary); font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; }
+.live-class-back:hover { color: var(--primary); text-decoration: underline; }
+.live-class-heading { align-items: end; display: flex; gap: 1rem; justify-content: space-between; margin-bottom: 1.75rem; }
+.live-status { align-items: center; color: var(--success); display: inline-flex; font-size: 0.8125rem; font-weight: 700; gap: 0.4rem; margin-bottom: 0.5rem; }
+.live-status i, .live-meeting-live i { background: var(--success); border-radius: 50%; display: inline-block; height: 8px; width: 8px; }
+.live-class-heading h1 { color: var(--text-primary); font-size: 2rem; letter-spacing: -0.025em; line-height: 1.25; margin-bottom: 0.4rem; }
+.live-class-heading p { color: var(--text-secondary); }
+.live-class-date { align-items: flex-end; color: var(--text-secondary); display: flex; flex-direction: column; font-size: 0.875rem; white-space: nowrap; }
+.live-class-date strong { color: var(--text-primary); font-size: 0.9375rem; }
+.live-class-layout { align-items: start; display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr) 330px; }
+.live-meeting-area { background: var(--bg-dark); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); color: var(--text-inverse); min-height: 455px; overflow: hidden; position: relative; }
+.live-meeting-waiting, .live-meeting-connected { align-items: center; display: flex; flex-direction: column; inset: 0; justify-content: center; padding: 2rem; position: absolute; text-align: center; }
+.live-meeting-waiting::before, .live-meeting-connected::before { background: radial-gradient(circle, rgba(37, 99, 235, 0.35), transparent 68%); content: ""; height: 420px; position: absolute; width: 420px; }
+.live-camera-icon { align-items: center; background: rgba(255, 255, 255, 0.13); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 50%; display: flex; font-size: 2rem; height: 72px; justify-content: center; margin-bottom: 1rem; position: relative; width: 72px; }
+.live-meeting-area h2, .live-meeting-area p, .live-meeting-connected img, .live-meeting-live { position: relative; }
+.live-meeting-area h2 { font-size: 1.35rem; margin-bottom: 0.35rem; }
+.live-meeting-area p { color: rgba(255,255,255,0.72); }
+.live-meeting-connected img { border: 3px solid rgba(255,255,255,0.45); border-radius: 50%; height: 108px; margin-bottom: 1rem; object-fit: cover; width: 108px; }
+.live-meeting-live { align-items: center; background: rgba(15, 23, 42, 0.75); border-radius: var(--radius-full); display: flex; font-size: 0.75rem; font-weight: 700; gap: 0.35rem; left: 1rem; padding: 0.35rem 0.65rem; position: absolute; top: 1rem; }
+.live-meeting-controls { background: rgba(15, 23, 42, 0.75); bottom: 0; display: flex; gap: 1.25rem; justify-content: center; padding: 1rem; position: absolute; width: 100%; }
+.live-meeting-controls span { color: rgba(255,255,255,0.8); font-size: 0.8125rem; }
+.live-primary-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.live-primary-actions .btn { flex: 1; }
+.live-meeting-link { color: var(--text-muted); font-size: 0.8125rem; margin-top: 1rem; text-align: center; }
+.live-meeting-link span { color: var(--primary); font-weight: 600; }
+.live-session-sidebar { display: grid; gap: 1rem; }
+.live-info-card, .live-people-card, .live-notes-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); padding: 1.25rem; }
+.live-session-sidebar h2 { color: var(--text-primary); font-size: 1rem; margin-bottom: 1rem; }
+.live-info-card dl { display: grid; gap: 0.75rem; }
+.live-info-card dl div { display: grid; gap: 0.15rem; }
+.live-info-card dt { color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+.live-info-card dd { color: var(--text-primary); font-size: 0.875rem; font-weight: 600; margin: 0; }
+.live-people-card { display: grid; gap: 0.875rem; }
+.live-person { align-items: center; display: flex; gap: 0.75rem; }
+.live-person img, .live-student > span { border-radius: 50%; height: 42px; object-fit: cover; width: 42px; }
+.live-student > span { align-items: center; background: var(--primary-light); color: var(--primary); display: flex; font-weight: 800; justify-content: center; }
+.live-person div { display: grid; gap: 0.1rem; }
+.live-person strong { color: var(--text-primary); font-size: 0.875rem; }
+.live-person div span { color: var(--text-muted); font-size: 0.75rem; }
+.live-notes-card p { color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; }
+.live-class-not-found { padding: 5rem 0; text-align: center; }
+.live-class-not-found h1 { margin-bottom: 1rem; }
+@media (max-width: 900px) { .live-class-layout { grid-template-columns: 1fr; } .live-session-sidebar { grid-template-columns: repeat(3, 1fr); } .live-meeting-area { min-height: 420px; } }
+@media (max-width: 700px) { .live-class-heading { align-items: flex-start; flex-direction: column; } .live-class-date { align-items: flex-start; } .live-class-heading h1 { font-size: 1.55rem; } .live-session-sidebar { grid-template-columns: 1fr; } .live-meeting-area { min-height: 340px; } .live-primary-actions { flex-direction: column; } }
+@media (max-width: 420px) { .live-meeting-controls { gap: 0.75rem; } .live-meeting-controls span { font-size: 0.7rem; } }

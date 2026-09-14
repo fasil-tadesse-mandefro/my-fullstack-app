@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Booking Management Styles
+   ========================================================================== */
+
+.booking-id-text {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.table-session-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.table-session-cell strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-participants-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.participant {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.p-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  background: var(--text-secondary);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.table-schedule-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.table-schedule-cell span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Status Pills Extended for Bookings */
+.status-pill.upcoming {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.status-pill.completed {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.status-pill.cancelled {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}

@@ -1,0 +1,867 @@
+/* ==========================================================================
+   Booking Page Styles — ABUGIDA Learning Platform
+   ========================================================================== */
+
+.booking-page {
+  background-color: var(--bg-subtle);
+  min-height: calc(100vh - var(--navbar-height));
+  padding-bottom: 5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumb Bar
+   -------------------------------------------------------------------------- */
+.booking-breadcrumb-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 0;
+  margin-bottom: 2rem;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8438rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.breadcrumb-back-link:hover {
+  text-decoration: underline;
+  transform: translateX(-2px);
+}
+
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-trail a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-trail a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb-trail .current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Page Header
+   -------------------------------------------------------------------------- */
+.booking-page-header {
+  margin-bottom: 2rem;
+}
+
+.booking-header-tag {
+  display: inline-block;
+  font-size: 0.7813rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.booking-page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.booking-page-header p {
+  font-size: 0.9688rem;
+  color: var(--text-secondary);
+}
+
+/* Error Banner */
+.booking-alert-banner {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Main Form Layout (2 Columns)
+   -------------------------------------------------------------------------- */
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.booking-config-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Card Wrappers
+   -------------------------------------------------------------------------- */
+.booking-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-section-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   1. Tutor Summary Card
+   -------------------------------------------------------------------------- */
+.tutor-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+  border: 1.5px solid var(--primary-border);
+}
+
+.summary-avatar-box {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.summary-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-avatar-fallback {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-verified-dot {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+.summary-tutor-info {
+  flex: 1;
+}
+
+.summary-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+.summary-name-row h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.summary-badge-sub {
+  background: #ffffff;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary-border);
+}
+
+.summary-tagline {
+  font-size: 0.8438rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.summary-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7813rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.summary-rating {
+  font-weight: 700;
+  color: var(--star-color);
+}
+
+.summary-rate {
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.summary-bullet {
+  color: var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   Form Fields
+   -------------------------------------------------------------------------- */
+.form-group-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-label {
+  font-size: 0.8438rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.req {
+  color: var(--danger);
+}
+
+.custom-select,
+.custom-input,
+.custom-textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.9063rem;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-main);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.custom-select:hover,
+.custom-input:hover,
+.custom-textarea:hover {
+  border-color: var(--primary-border);
+}
+
+.custom-select:focus,
+.custom-input:focus,
+.custom-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.custom-textarea {
+  resize: vertical;
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1.25rem; }
+
+/* --------------------------------------------------------------------------
+   Session Type Cards
+   -------------------------------------------------------------------------- */
+.session-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.session-type-card {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  background: var(--bg-subtle);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.session-type-card:hover {
+  border-color: var(--primary-border);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.session-type-card.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.st-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.st-icon {
+  font-size: 1.5rem;
+}
+
+.st-badge {
+  font-size: 0.6563rem;
+  font-weight: 700;
+  background: var(--secondary-light);
+  color: var(--secondary);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+}
+
+.st-title {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.st-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Date & Time Slots Picker
+   -------------------------------------------------------------------------- */
+.date-pills-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.date-pill-btn {
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.date-pill-btn:hover {
+  border-color: var(--primary-border);
+}
+
+.date-pill-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.date-pill-day {
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.date-pill-date {
+  font-size: 0.7188rem;
+  opacity: 0.85;
+}
+
+.date-pill-btn.active .date-pill-date {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Time Slots */
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.time-slot-btn {
+  background: var(--bg-main);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.5rem;
+  font-size: 0.8438rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all var(--transition-fast);
+}
+
+.time-slot-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.time-slot-btn.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.time-slot-btn.selected .clock-icon {
+  filter: brightness(0) invert(1);
+}
+
+.slot-confirmed-banner {
+  margin-top: 1rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 0.8438rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.no-slots-text {
+  grid-column: span 4;
+  color: var(--text-muted);
+  font-size: 0.8438rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Duration Options
+   -------------------------------------------------------------------------- */
+.duration-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.duration-card {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--bg-subtle);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.duration-card:hover {
+  border-color: var(--primary-border);
+}
+
+.duration-card.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.duration-label {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.duration-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Right Summary & Checkout Card
+   -------------------------------------------------------------------------- */
+.booking-summary-col {
+  position: sticky;
+  top: 90px;
+}
+
+.sticky-summary-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.summary-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.summary-session-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8438rem;
+}
+
+.p-label {
+  color: var(--text-muted);
+}
+
+.p-val {
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+/* Promo Code Input */
+.promo-code-container {
+  margin-bottom: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.promo-input-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.promo-input {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8125rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  text-transform: uppercase;
+}
+
+.promo-input:focus {
+  border-color: var(--primary);
+}
+
+.promo-apply-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.promo-apply-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.promo-error-msg {
+  display: block;
+  font-size: 0.7188rem;
+  color: var(--danger);
+  margin-top: 0.25rem;
+}
+
+.promo-success-msg {
+  display: block;
+  font-size: 0.7188rem;
+  color: var(--success);
+  margin-top: 0.25rem;
+  font-weight: 700;
+}
+
+/* Price Calculation Box */
+.price-breakdown-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.discount-line {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.price-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.6rem 0;
+}
+
+.price-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.total-sub {
+  font-size: 0.7188rem;
+  color: var(--text-muted);
+}
+
+.total-amount {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+/* Summary Card Error Alert (Directly above CTA button) */
+.summary-error-banner {
+  background: #fef2f2;
+  border: 1.5px solid #f87171;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  font-size: 0.8438rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: summaryErrorShake 0.4s ease-in-out, summaryErrorFadeIn 0.25s ease-in;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+}
+
+.summary-error-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.summary-error-text {
+  line-height: 1.35;
+}
+
+@keyframes summaryErrorShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes summaryErrorFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Checkout Button */
+.booking-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: all var(--transition-fast);
+  margin-bottom: 1.25rem;
+}
+
+.booking-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.booking-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-micro-sub {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Guarantees List */
+.summary-guarantees {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.g-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary-col {
+    position: static;
+  }
+
+  .session-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tutor-summary-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .duration-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

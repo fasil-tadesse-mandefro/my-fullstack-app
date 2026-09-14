@@ -1,0 +1,1083 @@
+/* ==========================================================================
+   Tutor Profile Page Styles — ABUGIDA Learning Platform
+   ========================================================================== */
+
+.tutor-profile-page {
+  background-color: var(--bg-subtle);
+  min-height: calc(100vh - var(--navbar-height));
+  padding-bottom: 5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumb Header Bar
+   -------------------------------------------------------------------------- */
+.profile-breadcrumb-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 0;
+  margin-bottom: 1.75rem;
+}
+
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8438rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.breadcrumb-back-link:hover {
+  text-decoration: underline;
+  transform: translateX(-2px);
+}
+
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-trail a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-trail a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb-trail .current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Tutor Hero / Header Card
+   -------------------------------------------------------------------------- */
+.tutor-hero-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tutor-hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+.tutor-hero-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75rem;
+  flex: 1;
+}
+
+.tutor-hero-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tutor-hero-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.tutor-hero-avatar-fallback {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-verified-badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+}
+
+.tutor-hero-details {
+  flex: 1;
+}
+
+.tutor-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.tutor-profile-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.tutor-subject-pill {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.tutor-profile-tagline {
+  font-size: 0.9688rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.tutor-hero-meta-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.meta-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8438rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-md);
+}
+
+.star-gold {
+  color: var(--star-color);
+}
+
+.meta-muted {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.badge-availability-live {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.4);
+}
+
+/* Languages */
+.tutor-languages-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lang-label {
+  font-size: 0.7813rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.lang-chip {
+  font-size: 0.7813rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-muted);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Right Side of Hero Card */
+.tutor-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 200px;
+  padding-left: 2rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.rate-display-box {
+  margin-bottom: 1rem;
+}
+
+.rate-caption {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.rate-amount {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--secondary);
+  line-height: 1.1;
+  margin: 0.2rem 0;
+}
+
+.rate-unit {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.rate-sub {
+  font-size: 0.7188rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.hero-book-btn {
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.hero-book-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Main Profile Grid (2 Columns)
+   -------------------------------------------------------------------------- */
+.profile-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Sections & Details
+   -------------------------------------------------------------------------- */
+.profile-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Profile Card Sections */
+.profile-card-section {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-icon {
+  font-size: 1.35rem;
+}
+
+.section-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.bio-text p {
+  font-size: 0.9688rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.methodology-box {
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.methodology-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.methodology-header h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.methodology-box p {
+  font-size: 0.9063rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Why Book Highlights Grid */
+.why-book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.why-book-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.why-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.why-book-item h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.why-book-item p {
+  font-size: 0.7813rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Subjects & Levels Section
+   -------------------------------------------------------------------------- */
+.subsection-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.subjects-tags-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.subject-tag-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.check-dot {
+  color: var(--success);
+  font-weight: 800;
+}
+
+.levels-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.level-badge-pill {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+  font-size: 0.8438rem;
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+/* --------------------------------------------------------------------------
+   Qualifications Timeline
+   -------------------------------------------------------------------------- */
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.education-timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 2px var(--primary-border);
+}
+
+.degree-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.institution-name {
+  font-size: 0.8438rem;
+  color: var(--text-secondary);
+}
+
+.grad-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.certifications-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   Reviews Score Card & List
+   -------------------------------------------------------------------------- */
+.reviews-score-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-big-box {
+  text-align: center;
+  min-width: 140px;
+}
+
+.score-num {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stars-row {
+  color: var(--star-color);
+  font-size: 1.15rem;
+  margin: 0.25rem 0;
+}
+
+.score-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.score-breakdown-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7813rem;
+  color: var(--text-secondary);
+}
+
+.bar-row span:first-child {
+  width: 50px;
+}
+
+.bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-muted);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--star-color);
+  border-radius: var(--radius-full);
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-item-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  background: var(--bg-subtle);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.reviewer-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewer-info {
+  flex: 1;
+}
+
+.reviewer-info h4 {
+  font-size: 0.9063rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.reviewer-grade {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.review-rating-right {
+  text-align: right;
+}
+
+.stars-gold {
+  color: var(--star-color);
+  font-size: 0.875rem;
+}
+
+.review-date {
+  font-size: 0.7188rem;
+  color: var(--text-muted);
+}
+
+.review-comment {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Recorded Courses Mini Grid
+   -------------------------------------------------------------------------- */
+.tutor-courses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tutor-course-mini-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.course-mini-thumb {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.course-mini-body {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.course-mini-body h4 {
+  font-size: 0.9063rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.course-mini-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.course-mini-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-mini-price {
+  font-weight: 800;
+  font-size: 0.9375rem;
+  color: var(--primary);
+}
+
+.view-course-mini-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-course-mini-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Right Sidebar Booking Widget
+   -------------------------------------------------------------------------- */
+.profile-sidebar-col {
+  position: sticky;
+  top: 90px;
+}
+
+.sticky-booking-widget {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.booking-widget-header {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.25rem;
+}
+
+.widget-price-label {
+  font-size: 0.7813rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.widget-price-val {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0.2rem 0 0.5rem 0;
+}
+
+.widget-unit {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.guarantee-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #15803d;
+  background: #f0fdf4;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+/* Time Slots Picker */
+.time-slots-container {
+  margin-bottom: 1.5rem;
+}
+
+.slots-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.day-selector-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.day-pill-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.45rem 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.day-pill-btn .day-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.day-pill-btn .day-date {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.day-pill-btn:hover {
+  border-color: var(--primary-border);
+}
+
+.day-pill-btn.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.day-pill-btn.active .day-name {
+  color: var(--primary);
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.slot-pill-btn {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.5rem;
+  font-size: 0.7813rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slot-pill-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.slot-pill-btn.selected {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.slot-pill-btn.selected .slot-clock {
+  filter: brightness(0) invert(1);
+}
+
+.selected-slot-banner {
+  margin-top: 0.75rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 0.7813rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.no-slots-msg {
+  grid-column: span 2;
+  font-size: 0.7813rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Action Buttons */
+.widget-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.book-primary-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.book-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.btn-subtext {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.view-courses-secondary-btn {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  font-size: 0.8438rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.view-courses-secondary-btn:hover {
+  background: #ffffff;
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
+/* Perks List */
+.widget-perks-list {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.perk-item {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.perk-item span {
+  color: #16a34a;
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .profile-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar-col {
+    position: static;
+  }
+
+  .tutor-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tutor-hero-right {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    padding-left: 0;
+    padding-top: 1.25rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-book-btn {
+    width: 100%;
+  }
+
+  .why-book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subjects-tags-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .tutor-hero-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tutor-hero-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .tutor-profile-name {
+    font-size: 1.45rem;
+  }
+
+  .reviews-score-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tutor-courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
