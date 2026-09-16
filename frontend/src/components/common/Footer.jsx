@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
 import "./Footer.css";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="footer">
@@ -15,29 +17,26 @@ function Footer() {
               <span className="brand-icon">አ</span>
               <span>ABUGIDA</span>
             </Link>
-            <p className="footer-desc">
-              ABUGIDA connects students with qualified, passionate tutors for
-              personalized 1-on-1 learning and self-paced mastery courses.
-            </p>
+            <p className="footer-desc">{t("footer.description")}</p>
           </div>
 
           {/* Navigation Column */}
           <div className="footer-col">
-            <h4 className="footer-heading">Platform</h4>
+            <h4 className="footer-heading">{t("footer.platform")}</h4>
             <ul className="footer-links">
               <li>
                 <Link to="/" className="footer-link">
-                  Home
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
                 <Link to="/tutors" className="footer-link">
-                  Find Tutors
+                  {t("nav.findTutors")}
                 </Link>
               </li>
               <li>
                 <Link to="/courses" className="footer-link">
-                  Courses
+                  {t("nav.courses")}
                 </Link>
               </li>
             </ul>
@@ -45,16 +44,16 @@ function Footer() {
 
           {/* Account Column */}
           <div className="footer-col">
-            <h4 className="footer-heading">Account</h4>
+            <h4 className="footer-heading">{t("footer.account")}</h4>
             <ul className="footer-links">
               <li>
                 <Link to="/login" className="footer-link">
-                  Login
+                  {t("nav.login")}
                 </Link>
               </li>
               <li>
                 <Link to="/register" className="footer-link">
-                  Register
+                  {t("nav.register")}
                 </Link>
               </li>
             </ul>
@@ -62,23 +61,19 @@ function Footer() {
 
           {/* Contact Column */}
           <div className="footer-col">
-            <h4 className="footer-heading">Contact</h4>
-            <p className="contact-info">
-              Have questions or feedback?
-            </p>
-            <p className="footer-desc">
-              Contact information coming soon.
-            </p>
-            <span className="contact-tag">Support Hours: 8:00 AM - 6:00 PM</span>
+            <h4 className="footer-heading">{t("footer.contact")}</h4>
+            <p className="contact-info">{t("footer.contactQuestion")}</p>
+            <p className="footer-desc">{t("footer.contactSoon")}</p>
+            <span className="contact-tag">{t("footer.supportHours")}</span>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p>© {currentYear} ABUGIDA. All rights reserved.</p>
+          <p>© {currentYear} ABUGIDA. {t("footer.rights")}</p>
           <div className="footer-legal">
-            <span className="footer-link-disabled">Terms of Service</span>
-            <span className="footer-link-disabled">Privacy Policy</span>
+            <span className="footer-link-disabled">{t("footer.terms")}</span>
+            <span className="footer-link-disabled">{t("footer.privacy")}</span>
           </div>
         </div>
       </div>

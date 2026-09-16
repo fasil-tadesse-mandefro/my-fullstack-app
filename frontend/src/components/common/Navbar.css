@@ -2,15 +2,16 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(var(--navbar-bg-rgb, 255, 255, 255), 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   height: var(--navbar-height);
   display: flex;
   align-items: center;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
+
 
 .navbar-container {
   display: flex;
@@ -281,4 +282,95 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ─── Navbar Controls (Theme + Language) ───────────────────────── */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary-border);
+  transform: rotate(15deg);
+}
+
+/* Language switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.lang-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.lang-btn.ethiopic {
+  font-family: 'Noto Sans Ethiopic', sans-serif;
+  font-size: 0.8125rem;
+}
+
+.lang-btn:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.lang-btn.active {
+  color: var(--primary);
+  background: var(--primary-light);
+  font-weight: 700;
+}
+
+.lang-divider {
+  color: var(--border-color);
+  font-size: 0.625rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Mobile controls row */
+.mobile-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Dark mode: navbar glassmorphism */
+[data-theme="dark"] .navbar {
+  background-color: rgba(15, 23, 42, 0.9);
 }

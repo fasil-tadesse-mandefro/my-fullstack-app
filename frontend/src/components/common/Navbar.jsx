@@ -1,12 +1,41 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
 import Button from "./Button";
 import "./Navbar.css";
+
+// ── Icons ──────────────────────────────────────────────────────────
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5" />
+      <line x1="12" y1="1" x2="12" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="23" />
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+      <line x1="1" y1="12" x2="3" y2="12" />
+      <line x1="21" y1="12" x2="23" y2="12" />
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
 
 function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  const { lang, switchLang, t } = useLanguage();
   const navigate = useNavigate();
 
   const handleNavClick = () => {
@@ -33,6 +62,41 @@ function Navbar() {
     navigate("/");
   };
 
+  // ── Shared toggle UI ──────────────────────────────────────────────
+  const ThemeToggle = () => (
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={toggleTheme}
+      aria-label={theme === "dark" ? t("theme.toggleLight") : t("theme.toggleDark")}
+      title={theme === "dark" ? t("theme.toggleLight") : t("theme.toggleDark")}
+    >
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+    </button>
+  );
+
+  const LangSwitcher = () => (
+    <div className="lang-switcher" role="group" aria-label="Language switcher">
+      <button
+        type="button"
+        className={`lang-btn${lang === "en" ? " active" : ""}`}
+        onClick={() => switchLang("en")}
+        aria-pressed={lang === "en"}
+      >
+        {t("language.english")}
+      </button>
+      <span className="lang-divider" aria-hidden="true">|</span>
+      <button
+        type="button"
+        className={`lang-btn ethiopic${lang === "am" ? " active" : ""}`}
+        onClick={() => switchLang("am")}
+        aria-pressed={lang === "am"}
+      >
+        {t("language.amharic")}
+      </button>
+    </div>
+  );
+
   return (
     <header className="navbar">
       <div className="container navbar-container">
@@ -53,7 +117,7 @@ function Navbar() {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Home
+                {t("nav.home")}
               </NavLink>
             </li>
             <li>
@@ -63,7 +127,7 @@ function Navbar() {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Find Tutors
+                {t("nav.findTutors")}
               </NavLink>
             </li>
             <li>
@@ -73,7 +137,7 @@ function Navbar() {
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                Courses
+                {t("nav.courses")}
               </NavLink>
             </li>
           </ul>
@@ -81,6 +145,12 @@ function Navbar() {
 
         {/* Desktop Actions */}
         <div className="navbar-actions">
+          {/* Theme + Language controls */}
+          <div className="navbar-controls">
+            <ThemeToggle />
+            <LangSwitcher />
+          </div>
+
           {isAuthenticated && user ? (
             <div className="navbar-user-menu">
               <Link
@@ -99,7 +169,7 @@ function Navbar() {
                 <div className="user-text-info">
                   <span className="user-name">{user.name}</span>
                   <span className={`user-role-badge badge-${user.role}`}>
-                    {user.role}
+                    {t(`role.${user.role}`) || user.role}
                   </span>
                 </div>
               </Link>
@@ -108,7 +178,7 @@ function Navbar() {
                 size="sm"
                 onClick={handleLogout}
               >
-                Logout
+                {t("nav.logout")}
               </Button>
             </div>
           ) : (
@@ -118,14 +188,14 @@ function Navbar() {
                 size="sm"
                 onClick={() => navigate("/login")}
               >
-                Login
+                {t("nav.login")}
               </Button>
               <Button
                 variant="primary"
                 size="sm"
                 onClick={() => navigate("/register")}
               >
-                Register
+                {t("nav.register")}
               </Button>
             </>
           )}
@@ -154,7 +224,7 @@ function Navbar() {
               }
               onClick={handleNavClick}
             >
-              Home
+              {t("nav.home")}
             </NavLink>
             <NavLink
               to="/tutors"
@@ -163,7 +233,7 @@ function Navbar() {
               }
               onClick={handleNavClick}
             >
-              Find Tutors
+              {t("nav.findTutors")}
             </NavLink>
             <NavLink
               to="/courses"
@@ -172,7 +242,7 @@ function Navbar() {
               }
               onClick={handleNavClick}
             >
-              Courses
+              {t("nav.courses")}
             </NavLink>
 
             {isAuthenticated && user && (
@@ -183,9 +253,15 @@ function Navbar() {
                 }
                 onClick={handleNavClick}
               >
-                📊 My {user.role?.charAt(0).toUpperCase() + user.role?.slice(1)} Dashboard
+                📊 {t("nav.myDashboard")}
               </NavLink>
             )}
+
+            {/* Mobile Controls Row */}
+            <div className="mobile-controls-row">
+              <ThemeToggle />
+              <LangSwitcher />
+            </div>
 
             <div className="mobile-actions">
               {isAuthenticated && user ? (
@@ -195,7 +271,7 @@ function Navbar() {
                   fullWidth
                   onClick={handleLogout}
                 >
-                  Logout ({user.name})
+                  {t("nav.logout")} ({user.name})
                 </Button>
               ) : (
                 <>
@@ -208,7 +284,7 @@ function Navbar() {
                       navigate("/login");
                     }}
                   >
-                    Login
+                    {t("nav.login")}
                   </Button>
                   <Button
                     variant="primary"
@@ -219,7 +295,7 @@ function Navbar() {
                       navigate("/register");
                     }}
                   >
-                    Register
+                    {t("nav.register")}
                   </Button>
                 </>
               )}
