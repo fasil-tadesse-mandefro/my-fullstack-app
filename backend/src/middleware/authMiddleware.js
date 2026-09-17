@@ -1,7 +1,21 @@
 const jwt = require("jsonwebtoken");
 const db = require("../config/db");
 
-const JWT_SECRET = process.env.JWT_SECRET || "abugida_secret_jwt_key_2026_production_ready";
+// ⚠️  JWT_SECRET must come from the environment — never hard-code a secret.
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  if (process.env.NODE_ENV === "production") {
+    console.error("❌ JWT_SECRET environment variable is not set. Aborting.");
+    process.exit(1);
+  } else {
+    console.warn(
+      "⚠️  WARNING: JWT_SECRET is not set. Using an insecure default for development only. " +
+        "Set JWT_SECRET in your .env file."
+    );
+  }
+}
+const EFFECTIVE_JWT_SECRET = JWT_SECRET || "dev_only_insecure_jwt_secret_do_not_use_in_prod";
+
 
 // Authenticate JWT Token
 async function authenticateToken(req, res, next) {
@@ -13,7 +27,7 @@ async function authenticateToken(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, EFFECTIVE_JWT_SECRET);
     const user = await db.getUserWithRoles(decoded.id || decoded.email);
 
     if (!user) {
@@ -57,5 +71,5 @@ function requireRole(...allowedRoles) {
 module.exports = {
   authenticateToken,
   requireRole,
-  JWT_SECRET,
+  JWT_SECRET: EFFECTIVE_JWT_SECRET, // exported for use in authController token signing
 };

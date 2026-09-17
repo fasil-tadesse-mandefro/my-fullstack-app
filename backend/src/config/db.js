@@ -3,13 +3,31 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const dbConfig = {
-  user: process.env.DB_USER || "postgres",
-  host: process.env.DB_HOST || "localhost",
-  database: process.env.DB_NAME || "abugida_db",
-  password: process.env.DB_PASSWORD || "0324",
-  port: parseInt(process.env.DB_PORT || "5432", 10),
-};
+// ⚠️  No hard-coded password fallback — DB_PASSWORD must be set via environment variable.
+if (!process.env.DB_PASSWORD && process.env.NODE_ENV === "production") {
+  throw new Error("DB_PASSWORD environment variable is required in production.");
+}
+
+// SSL: set DB_SSL=true for cloud providers (Neon, Railway, Supabase, Render, etc.)
+// Also auto-detect if host or DATABASE_URL contains neon.tech or similar cloud domains
+const useSsl =
+  process.env.DB_SSL === "true" ||
+  (process.env.DATABASE_URL && process.env.DATABASE_URL.includes("sslmode=require")) ||
+  (process.env.DB_HOST && process.env.DB_HOST.includes("neon.tech"));
+
+const dbConfig = process.env.DATABASE_URL
+  ? {
+      connectionString: process.env.DATABASE_URL,
+      ...(useSsl ? { ssl: { rejectUnauthorized: false } } : {}),
+    }
+  : {
+      user: process.env.DB_USER || "postgres",
+      host: process.env.DB_HOST || "localhost",
+      database: process.env.DB_NAME || "abugida_db",
+      password: process.env.DB_PASSWORD || "",
+      port: parseInt(process.env.DB_PORT || "5432", 10),
+      ...(useSsl ? { ssl: { rejectUnauthorized: false } } : {}),
+    };
 
 // Function to ensure database exists
 async function ensureDatabaseExists() {
