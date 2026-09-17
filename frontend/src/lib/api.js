@@ -7,7 +7,16 @@
  * Token storage key must match AuthContext: "abugida_auth_token"
  */
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+function getBaseUrl() {
+  let url = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  url = url.trim().replace(/\/+$/, ""); // remove any trailing slash
+  if (!url.endsWith("/api")) {
+    url = `${url}/api`;
+  }
+  return url;
+}
+
+const BASE_URL = getBaseUrl();
 const TOKEN_KEY = "abugida_auth_token";
 
 // ─────────────────────────────────────────────────────────────

@@ -66,22 +66,35 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Health Check API
-app.get("/api/health", (req, res) => {
+const healthCheckHandler = (req, res) => {
   res.status(200).json({
     status: "ok",
     message: "Abugida Express PostgreSQL Backend is running.",
     database: process.env.DB_NAME || "abugida_db",
     timestamp: new Date().toISOString(),
   });
-});
+};
+app.get("/api/health", healthCheckHandler);
+app.get("/health", healthCheckHandler);
 
-// Mount Routes
+// Mount Routes under both /api/... AND /... so calls succeed whether or not the frontend includes "/api"
 app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
+
 app.use("/api/users", userRoutes);
+app.use("/users", userRoutes);
+
 app.use("/api/tutors", tutorRoutes);
+app.use("/tutors", tutorRoutes);
+
 app.use("/api/bookings", bookingRoutes);
+app.use("/bookings", bookingRoutes);
+
 app.use("/api/courses", courseRoutes);
+app.use("/courses", courseRoutes);
+
 app.use("/api/upload", uploadRoutes);
+app.use("/upload", uploadRoutes);
 
 // Root Route
 app.get("/", (req, res) => {
