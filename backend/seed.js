@@ -12,13 +12,25 @@ const { Pool } = require("pg");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
-const pool = new Pool({
-  user: process.env.DB_USER || "postgres",
-  host: process.env.DB_HOST || "localhost",
-  database: process.env.DB_NAME || "abugida_db",
-  password: process.env.DB_PASSWORD || "0324",
-  port: parseInt(process.env.DB_PORT || "5432", 10),
-});
+const useSsl =
+  process.env.DB_SSL === "true" ||
+  (process.env.DATABASE_URL && process.env.DATABASE_URL.includes("sslmode=require")) ||
+  (process.env.DATABASE_URL && process.env.DATABASE_URL.includes("neon.tech"));
+
+const pool = new Pool(
+  process.env.DATABASE_URL
+    ? {
+        connectionString: process.env.DATABASE_URL,
+        ...(useSsl ? { ssl: { rejectUnauthorized: false } } : {}),
+      }
+    : {
+        user: process.env.DB_USER || "postgres",
+        host: process.env.DB_HOST || "localhost",
+        database: process.env.DB_NAME || "abugida_db",
+        password: process.env.DB_PASSWORD || "",
+        port: parseInt(process.env.DB_PORT || "5432", 10),
+      }
+);
 
 async function seed() {
   const client = await pool.connect();
